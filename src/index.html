@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>hallo</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <nav>
+        <ul>
+          <li class="mr2p"><a data-call="f_open" href="javascript:void(0)">leer texto</a></li>
+          <li class="mr2p"><a download="txt2sc_.png" data-call="f_save" href="javascript:void(0)">guardar imagen</a></li>
+          <li class="mr2p"><a href="javascript:void(0)">&nbsp;</a></li>
+          <li class="mr2p"><a data-call="s_mute" href="javascript:void(0)">silenciar</a></li>
+          <!--
+          <li>amplitud</li>
+          <li><a data-call="a_plus" href="javascript:void(0)">[ + ]</a></li>
+          <li class="mr2p"><a data-call="a_less" href="javascript:void(0)">[ - ]</a></li>
+          -->
+          <li>saturacion</li>
+          <li><a data-call="s_plus" href="javascript:void(0)">[ + ]</a></li>
+          <li><a data-call="s_less" href="javascript:void(0)">[ - ]</a></li>
+        </ul>
+      </nav>
+    </header>
+    <canvas id="ccc"></canvas>
+    <div id="editor">
+      <textarea></textarea>
+      <a data-call="e_cancel" href="javascript:void(0)">Cancelar</a>
+      <a data-call="e_leer" href="javascript:void(0)">Leer</a>
+    </div>
+    <script src="js/jquery-1.11.2.min.js"></script>
+    <script src="js/txt2sc.js"></script>
+  </body>
+</html>
