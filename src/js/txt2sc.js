@@ -108,6 +108,10 @@ function apago_sine(_obj){
     //     Sinusoide.objeto_sq.disconnect(); }
 }
 
+function sin_start(s_obj){
+    try{ s_obj.start(0); }catch(e){ } // HAX.
+}
+
 function actualizo_sine(freq, _obj) {
 
     if( !USE_AUDIO ) return; 
@@ -132,6 +136,7 @@ function actualizo_sine(freq, _obj) {
 
     if( _obj == "sine" || _obj == undefined ){
         Sinusoide.objeto.connect(Sinusoide.contexto.destination);
+        sin_start(Sinusoide.objeto);
 
         var sine_freq = freq_cal;
         if( parseInt(Sinusoide.objeto.context.currentTime) % parseInt(Math.random() + (5-1) + 1) == 0) {
@@ -143,10 +148,12 @@ function actualizo_sine(freq, _obj) {
     }
     else if( _obj == "tri"  ){
         Sinusoide.objeto_tri.connect(Sinusoide.contexto.destination);
+        sin_start(Sinusoide.objeto_tri);
         Sinusoide.objeto_tri.frequency.value = freq_cal;
     }
     // else if( _obj == "sq"  ){
     //     Sinusoide.objeto_sq.connect(Sinusoide.contexto.destination);
+    //     sin_start(Sinusoide.objeto_tri);
     //     Sinusoide.objeto_sq.frequency.value = freq_cal;
     // }
 };
