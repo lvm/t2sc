@@ -34,14 +34,17 @@ var Sinusoide = {contexto: new (window.AudioContext || window.webkitAudioContext
 Sinusoide.objeto = Sinusoide.contexto.createOscillator();
 Sinusoide.objeto.type = 'sine'; //0; // sine
 Sinusoide.objeto.noteOn && Sinusoide.objeto.noteOn(0);
+Sinusoide.objeto.start(0);
 
 Sinusoide.objeto_tri = Sinusoide.contexto.createOscillator();
 Sinusoide.objeto_tri.type = 'triangle'; //3; // triwave
 Sinusoide.objeto_tri.noteOn && Sinusoide.objeto_tri.noteOn(0);
+Sinusoide.objeto_tri.start(0);
 
 // Sinusoide.objeto_sq = Sinusoide.contexto.createOscillator();
 // Sinusoide.objeto_sq.type = 'square'; // x // squarewave
 // Sinusoide.objeto_sq.noteOn && Sinusoide.objeto_sq.noteOn(0);
+// Sinusoide.objeto_sq.start(0);
 
 var Imagen = {canvas: {w:$(window).width(),
                      h:$(window).height()},
@@ -108,10 +111,6 @@ function apago_sine(_obj){
     //     Sinusoide.objeto_sq.disconnect(); }
 }
 
-function sin_start(s_obj){
-    try{ s_obj.start(0); }catch(e){ } // HAX.
-}
-
 function actualizo_sine(freq, _obj) {
 
     if( !USE_AUDIO ) return; 
@@ -136,7 +135,6 @@ function actualizo_sine(freq, _obj) {
 
     if( _obj == "sine" || _obj == undefined ){
         Sinusoide.objeto.connect(Sinusoide.contexto.destination);
-        sin_start(Sinusoide.objeto);
 
         var sine_freq = freq_cal;
         if( parseInt(Sinusoide.objeto.context.currentTime) % parseInt(Math.random() + (5-1) + 1) == 0) {
@@ -148,12 +146,10 @@ function actualizo_sine(freq, _obj) {
     }
     else if( _obj == "tri"  ){
         Sinusoide.objeto_tri.connect(Sinusoide.contexto.destination);
-        sin_start(Sinusoide.objeto_tri);
         Sinusoide.objeto_tri.frequency.value = freq_cal;
     }
     // else if( _obj == "sq"  ){
     //     Sinusoide.objeto_sq.connect(Sinusoide.contexto.destination);
-    //     sin_start(Sinusoide.objeto_tri);
     //     Sinusoide.objeto_sq.frequency.value = freq_cal;
     // }
 };
