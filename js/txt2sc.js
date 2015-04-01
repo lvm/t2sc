@@ -276,7 +276,7 @@ function leo_texto(texto){
 
 function canvas_dataurl(){
     var canvas = hTML.canvas[0];
-    if ( canvas.isSupported('toDataURL') ){
+    if ( canvas['toDataURL'] ){
         return canvas.toDataURL('image/png');
     }
     return undefined;
